@@ -24,11 +24,14 @@ public class GetTheStock implements Runnable{
             }catch (InterruptedException e){}
             double randNum = (Math.random() * (.06))-0.03;
             DecimalFormat df = new DecimalFormat("#.##");
-            price = Double.valueOf(df.format(price + randNum));
+            price = Double.valueOf(price + randNum);
+            //price = Double.valueOf(df.format(price + randNum));
 
             if(stock == "IBM") ((StockGrabber)stockGrabber).setIbmPrice(price);
-            if(stock == "AAPL") ((StockGrabber)stockGrabber).setIbmPrice(price);
-            if(stock == "GOOGLE") ((StockGrabber)stockGrabber).setIbmPrice(price);
+            if(stock == "AAP") ((StockGrabber)stockGrabber).setAaplPrice(price);
+            if(stock == "GOO") ((StockGrabber)stockGrabber).setGoogPrice(price);
+
+            System.out.println(stock + ": "+df.format((price + randNum)) + " " + df.format(randNum));
         }
     }
 }
